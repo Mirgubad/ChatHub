@@ -95,6 +95,7 @@ leaveChatbtn.addEventListener("click", () => {
     document.getElementById("userInput").value = "";
     document.getElementById("selectGroup").value = "";
     document.getElementById("groupError").innerHTML = "";
+    document.getElementById("userInput").placeholder = "Enter username";
     localStorage.removeItem("user");
     JoinGroupSection();
 })
