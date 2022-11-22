@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <form id="addToGroup">
+        <div class="row">
+            <div class="col-2 mx-auto">
+                <span>UserName</span>
+                <input class="form-control" type="text" id="userInput" />
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-2 mx-auto">
+                <span>Groups</span>
+                <select class="form-select" id="selectGroup">
+                    <option value="1">Group 1</option>
+                    <option value="2">Group 2</option>
+                    <option value="3">Group 3</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-1 mt-3 mx-auto">
+                    <button class="btn btn-outline-success" type="submit" id="submitBtn">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+
+<section class="gradient-custom d-none" id="chatSection">
+    <div class="container py-5">
+
+        <div class="row">
+
+            <div class="col-md-6 col-lg-5 col-xl-5 mb-4 mb-md-0">
+
+                <h5 class="font-weight-bold mb-3 text-center text-white">Message</h5>
+
+                <div class="card mask-custom">
+                    <div class="card-body">
+                        <div class="form-outline form-white d-block">
+                            <textarea class="form-control mb-4" id="messageInput" rows="4"></textarea>
+                            <button class="btn btn-outline-danger" id="leaveChat">Leave Chat</button>
+                            <button type="submit" class="btn btn-outline-light float-end" id="sendButton">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-7 col-xl-7" id="chat">
+
+                <ul class="list-unstyled text-white" id="messagesList">
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@section Scripts{
+    <script src="/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="/js/chat.js"></script>
+    }
