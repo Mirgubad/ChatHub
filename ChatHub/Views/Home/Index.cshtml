@@ -6,19 +6,20 @@
     <form id="addToGroup">
         <div class="row">
             <div class="col-2 mx-auto">
-                <span>UserName</span>
-                <input class="form-control" type="text" id="userInput" />
+
+                <input class="form-control" type="text" id="userInput" placeholder="Username" />
             </div>
 
         </div>
         <div class="row">
-            <div class="col-2 mx-auto">
-                <span>Groups</span>
+            <div class="col-2 mx-auto pt-4">
                 <select class="form-select" id="selectGroup">
+                    <option value="">Select Group</option>
                     <option value="1">Group 1</option>
                     <option value="2">Group 2</option>
                     <option value="3">Group 3</option>
                 </select>
+                <span id="groupError" class="text-danger"></span>
             </div>
             <div class="row">
                 <div class="col-1 mt-3 mx-auto">

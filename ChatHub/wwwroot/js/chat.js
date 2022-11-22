@@ -55,14 +55,24 @@ addToGroup.addEventListener("submit", (e) => {
         name: document.getElementById("userInput").value,
         group: document.getElementById("selectGroup").value
     }
-    connection.invoke("AddToGroupAsync", user.group).catch(function (err) {
-        return console.error(err.toString());
-    })
 
-    document.getElementById("messagesList").innerHTML = "";
+    if (document.getElementById("userInput").value != "" && document.getElementById("selectGroup").value != "") {
 
-    localStorage.setItem("user", JSON.stringify(user));
-    ShowChatSection();
+        connection.invoke("AddToGroupAsync", user.group).catch(function (err) {
+            return console.error(err.toString());
+        })
+        localStorage.setItem("user", JSON.stringify(user));
+        ShowChatSection();
+        document.getElementById("messagesList").innerHTML = "";
+
+    }
+    else {
+        document.getElementById("groupError").innerHTML = "";
+        var errorMessage = "Please select group"
+        document.getElementById("userInput").placeholder = "Please enter username";
+        document.getElementById("groupError").innerHTML = errorMessage;
+    }
+   
 })
 
 function ShowChatSection() {
@@ -82,6 +92,9 @@ leaveChatbtn.addEventListener("click", () => {
         return console.error(err.toString());
     })
 
+    document.getElementById("userInput").value = "";
+    document.getElementById("selectGroup").value = "";
+    document.getElementById("groupError").innerHTML = "";
     localStorage.removeItem("user");
     JoinGroupSection();
 })
